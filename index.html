@@ -24,13 +24,15 @@
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
 body{background:var(--bg);color:var(--tx);font-family:var(--sans);font-size:14px;min-height:100vh;}
 
-/* Header */
 header{
   background:var(--sf);border-bottom:1px solid var(--bd);
-  display:flex;align-items:center;gap:10px;padding:0 20px;
-  height:calc(52px + var(--st));padding-top:var(--st);
+  display:flex;align-items:center;gap:12px;padding:0 20px;
+  height:calc(56px + var(--st));padding-top:var(--st);
   position:sticky;top:0;z-index:10;
 }
+.logo-wrap{display:flex;align-items:center;gap:10px;}
+.logo-icon{width:32px;height:32px;border-radius:8px;overflow:hidden;flex-shrink:0;}
+.logo-icon img{width:100%;height:100%;object-fit:cover;}
 .logo{font-size:16px;font-weight:700;color:var(--ac);}
 .logo span{color:var(--tx);font-weight:300;}
 .vtag{font-family:var(--mono);font-size:10px;background:var(--sf2);border:1px solid var(--bd);color:var(--mu);padding:2px 7px;border-radius:20px;}
@@ -39,62 +41,54 @@ header{
 .dot.ok{background:var(--ac);}.dot.err{background:var(--dn);}
 .dot.ld{background:var(--wn);animation:bk .6s infinite;}
 @keyframes bk{50%{opacity:.2;}}
+.conn-lbl{font-size:11px;color:var(--mu);}
 
-/* Main */
-main{max-width:720px;margin:0 auto;padding:24px 16px calc(32px + var(--sb));}
+main{max-width:720px;margin:0 auto;padding:20px 16px calc(32px + var(--sb));}
 
-/* Section title */
-.sec{font-size:11px;color:var(--mu);text-transform:uppercase;letter-spacing:.08em;margin:0 0 10px;}
+.sec{font-size:11px;color:var(--mu);text-transform:uppercase;letter-spacing:.08em;margin:0 0 8px;}
+.card{background:var(--sf);border:1px solid var(--bd);border-radius:var(--r);padding:18px;margin-bottom:14px;}
 
-/* Card */
-.card{background:var(--sf);border:1px solid var(--bd);border-radius:var(--r);padding:20px;margin-bottom:16px;}
-
-/* Form grid */
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
 .full{grid-column:1/-1;}
-.fg{display:flex;flex-direction:column;gap:6px;}
+.fg{display:flex;flex-direction:column;gap:5px;}
 .fg label{font-size:12px;color:var(--mu);font-weight:500;}
-.fg input,.fg select,.fg textarea{
+.fg input,.fg select{
   background:var(--sf2);border:1px solid var(--bd);border-radius:9px;
-  color:var(--tx);padding:11px 13px;font-size:14px;font-family:var(--sans);
-  width:100%;transition:border-color .15s;
+  color:var(--tx);padding:10px 13px;font-size:14px;font-family:var(--sans);width:100%;
+  transition:border-color .15s;
 }
-.fg input:focus,.fg select:focus,.fg textarea:focus{outline:none;border-color:var(--ac);}
-.fg textarea{resize:vertical;min-height:60px;}
+.fg input:focus,.fg select:focus{outline:none;border-color:var(--ac);}
 select option{background:var(--sf2);}
 
-/* 聯絡人快選 */
-.chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px;}
+/* 快選區塊 */
+.quick-section{margin-top:8px;}
+.quick-label{font-size:11px;color:var(--mu);margin-bottom:5px;}
+.chips{display:flex;gap:6px;flex-wrap:wrap;}
 .chip{
-  padding:4px 12px;border-radius:20px;
+  padding:5px 13px;border-radius:20px;
   background:var(--sf2);border:1px solid var(--bd);
-  font-size:12px;cursor:pointer;color:var(--tx);
-  -webkit-appearance:none;transition:all .15s;
+  font-size:13px;cursor:pointer;color:var(--tx);
+  -webkit-appearance:none;transition:all .15s;user-select:none;
 }
-.chip:active,.chip.sel{background:var(--ac);color:#000;border-color:var(--ac);}
-.chip-label{font-size:11px;color:var(--mu);margin-bottom:4px;}
+.chip:active,.chip.sel{background:var(--ac);color:#000;border-color:var(--ac);font-weight:600;}
 
-/* 勾選區 */
-.check-section{display:flex;flex-direction:column;gap:10px;}
+/* 勾選 */
+.check-section{display:flex;flex-direction:column;gap:12px;}
 .check-row{display:flex;gap:20px;flex-wrap:wrap;}
-.ci{display:flex;align-items:center;gap:8px;font-size:14px;cursor:pointer;padding:3px 0;}
+.ci{display:flex;align-items:center;gap:8px;font-size:14px;cursor:pointer;padding:2px 0;}
 .ci input{accent-color:var(--ac);width:16px;height:16px;}
 
-/* 固定發送 */
 .fixed-box{
-  background:var(--sf2);border:1px solid #3d2080;
-  border-radius:9px;padding:14px;margin-top:10px;
-  display:none;flex-direction:column;gap:8px;
+  background:var(--sf2);border:1px solid #3d2080;border-radius:9px;
+  padding:13px;margin-top:10px;display:none;flex-direction:column;gap:8px;
 }
 .fixed-box.show{display:flex;}
 
+/* Divider */
+.divider{border:none;border-top:1px solid var(--bd);margin:14px 0;}
+
 /* Buttons */
-.btn{
-  padding:12px 24px;border-radius:9px;border:none;
-  cursor:pointer;font-size:15px;font-family:var(--sans);
-  font-weight:600;transition:all .15s;width:100%;
-  -webkit-appearance:none;
-}
+.btn{padding:12px 24px;border-radius:9px;border:none;cursor:pointer;font-size:15px;font-family:var(--sans);font-weight:600;transition:all .15s;width:100%;-webkit-appearance:none;}
 .bp{background:var(--ac);color:#000;}
 .bp:active{filter:brightness(1.1);}
 .bp:disabled{opacity:.5;cursor:not-allowed;}
@@ -102,62 +96,49 @@ select option{background:var(--sf2);}
 .bo:active{border-color:var(--ac);color:var(--ac);}
 
 /* 成功提示 */
-.success-banner{
-  background:#0d2a1c;border:1px solid var(--ac);border-radius:var(--r);
-  padding:16px 20px;margin-bottom:16px;
-  display:none;flex-direction:column;gap:6px;
-  animation:fi .3s ease;
-}
+.success-banner{background:#0d2a1c;border:1px solid var(--ac);border-radius:var(--r);padding:14px 18px;margin-bottom:14px;display:none;flex-direction:column;gap:5px;animation:fi .3s ease;}
 .success-banner.show{display:flex;}
-@keyframes fi{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
-.success-banner .title{font-weight:700;color:var(--ac);font-size:15px;}
-.success-banner .detail{font-size:13px;color:#a0d4c4;line-height:1.6;}
+@keyframes fi{from{opacity:0;transform:translateY(-5px)}to{opacity:1;transform:none}}
+.success-banner .stitle{font-weight:700;color:var(--ac);font-size:15px;}
+.success-banner .sdetail{font-size:13px;color:#a0d4c4;line-height:1.7;white-space:pre-line;}
 
 /* Toast */
-#toast{
-  position:fixed;bottom:calc(16px + var(--sb));left:50%;
-  transform:translateX(-50%) translateY(16px);
-  background:var(--sf2);border:1px solid var(--bd);
-  border-radius:10px;padding:10px 20px;font-size:13px;
-  z-index:999;opacity:0;pointer-events:none;
-  transition:all .3s;white-space:nowrap;max-width:90vw;
-}
+#toast{position:fixed;bottom:calc(16px + var(--sb));left:50%;transform:translateX(-50%) translateY(14px);background:var(--sf2);border:1px solid var(--bd);border-radius:10px;padding:10px 20px;font-size:13px;z-index:999;opacity:0;pointer-events:none;transition:all .3s;white-space:nowrap;max-width:90vw;}
 #toast.show{transform:translateX(-50%) translateY(0);opacity:1;}
 #toast.ok{border-color:var(--ac);color:var(--ac);}
 #toast.err{border-color:var(--dn);color:var(--dn);}
 
-/* 響應式 */
 @media(max-width:480px){
-  .grid{grid-template-columns:1fr;}
-  .full{grid-column:1;}
-  main{padding:16px 12px calc(24px + var(--sb));}
+  .grid{grid-template-columns:1fr;}.full{grid-column:1;}
+  main{padding:14px 12px calc(24px + var(--sb));}
 }
 @media(min-width:768px){
-  main{padding:32px 24px;}
-  .card{padding:24px;}
+  main{padding:28px 24px;}.card{padding:22px;}
 }
 </style>
 </head>
 <body>
 
 <header>
-  <div class="logo">行程通知<span>新增</span></div>
+  <div class="logo-wrap">
+    <div class="logo-icon"><img src="icon-192.png" alt="行程通知"></div>
+    <div>
+      <div class="logo">行程通知<span>新增</span></div>
+    </div>
+  </div>
   <span class="vtag">v5</span>
   <div class="hr">
     <div class="dot ld" id="dot"></div>
-    <span style="font-size:11px;color:var(--mu)" id="conn-label">連線中…</span>
+    <span class="conn-lbl" id="conn-lbl">連線中…</span>
   </div>
 </header>
 
 <main>
-
-  <!-- 成功提示 -->
   <div class="success-banner" id="success-banner">
-    <div class="title">✅ 行程已新增成功！</div>
-    <div class="detail" id="success-detail"></div>
+    <div class="stitle">✅ 行程已新增成功！</div>
+    <div class="sdetail" id="success-detail"></div>
   </div>
 
-  <!-- 基本資料 -->
   <div class="sec">基本資料</div>
   <div class="card">
     <div class="grid">
@@ -212,29 +193,34 @@ select option{background:var(--sf2);}
     </div>
   </div>
 
-  <!-- 提醒對象 -->
-  <div class="sec">提醒對象</div>
+  <div class="sec">提醒對象與群組</div>
   <div class="card">
     <div class="fg">
-      <label>提醒對象（可點下方快選，多人逗號分隔）</label>
+      <label>提醒對象（多人逗號分隔）</label>
       <input type="text" id="f-rec" placeholder="e.g. 鄭惠方,林募發">
-      <div class="chip-label" id="contact-label">載入聯絡人中…</div>
+    </div>
+    <div class="quick-section">
+      <div class="quick-label" id="contact-lbl">載入聯絡人中…</div>
       <div class="chips" id="contact-chips"></div>
     </div>
-    <div class="fg" style="margin-top:14px">
-      <label>通知群組（可點下方快選，多群組逗號分隔）</label>
+
+    <hr class="divider">
+
+    <div class="fg">
+      <label>通知群組（多群組逗號分隔）</label>
       <input type="text" id="f-grp" placeholder="e.g. 家庭群組">
-      <div class="chip-label" id="group-label" style="display:none">群組：</div>
+    </div>
+    <div class="quick-section">
+      <div class="quick-label" id="group-lbl" style="display:none"></div>
       <div class="chips" id="group-chips"></div>
     </div>
   </div>
 
-  <!-- 通知設定 -->
   <div class="sec">通知設定</div>
   <div class="card">
     <div class="check-section">
       <div>
-        <div style="font-size:12px;color:var(--mu);margin-bottom:8px">提前通知</div>
+        <div style="font-size:12px;color:var(--mu);margin-bottom:8px;">提前通知</div>
         <div class="check-row">
           <label class="ci"><input type="checkbox" id="f-n7"> 7 天前</label>
           <label class="ci"><input type="checkbox" id="f-n1"> 1 天前</label>
@@ -244,134 +230,107 @@ select option{background:var(--sf2);}
       <div>
         <label class="ci">
           <input type="checkbox" id="f-fix" onchange="toggleFix()">
-          <span style="color:var(--pu);font-weight:600">固定發送通知</span>
+          <span style="color:var(--pu);font-weight:600;">固定發送通知</span>
         </label>
         <div class="fixed-box" id="fix-box">
-          <div style="font-size:12px;color:var(--pu)">固定發送日期規則</div>
+          <div style="font-size:12px;color:var(--pu);">固定發送日期規則</div>
           <input type="text" id="f-fdt" placeholder="每月15 / 每週一 / 每週五">
-          <div style="font-size:11px;color:var(--mu)">同時可勾選上方提前通知，固定行程亦適用</div>
+          <div style="font-size:11px;color:var(--mu);">同時可勾選上方提前通知，固定行程亦適用</div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- 送出按鈕 -->
   <button class="btn bp" id="submit-btn" onclick="submit()">送出行程</button>
   <button class="btn bo" onclick="resetForm()">清空重填</button>
-
 </main>
 
 <div id="toast"></div>
 
 <script>
-// ══════════════════════════════════════════
 const API_URL = 'https://script.google.com/macros/s/AKfycbxM6wfqPMy088w6hoRGX3j9FlUf1AUlmTEetkqXCLA6do3L2IFHSd4byFV41iXKl_Hm/exec';
 
-let contactsData = [];
-let groupsData   = [];
-let selectedRecs = new Set();
-let selectedGrps = new Set();
+let contactsData = [], groupsData = [];
+let selRecs = new Set(), selGrps = new Set();
 
-// ── 初始化 ──────────────────────────────
 window.addEventListener('DOMContentLoaded', () => {
-  // 預設今天日期
-  const today = new Date();
-  const yyyy  = today.getFullYear();
-  const mm    = String(today.getMonth()+1).padStart(2,'0');
-  const dd    = String(today.getDate()).padStart(2,'0');
-  document.getElementById('f-date').value = `${yyyy}-${mm}-${dd}`;
-
+  const t = new Date();
+  document.getElementById('f-date').value =
+    `${t.getFullYear()}-${String(t.getMonth()+1).padStart(2,'0')}-${String(t.getDate()).padStart(2,'0')}`;
   loadContacts();
 });
 
 if ('serviceWorker' in navigator) navigator.serviceWorker.register('./sw.js').catch(()=>{});
 
-// ── 載入聯絡人（從 Sheets 同步）────────
 async function loadContacts() {
-  setDot('ld', '連線中…');
+  setDot('ld','連線中…');
   try {
-    const r  = await fetch(API_URL + '?action=contacts');
-    const d  = await r.json();
-    if (!d.success) throw new Error(d.error || '載入失敗');
-
-    contactsData = d.contacts || [];
-    groupsData   = d.groups   || [];
-    setDot('ok', '已連線');
+    const r = await fetch(API_URL + '?action=contacts');
+    const d = await r.json();
+    if (!d.success) throw new Error(d.error||'載入失敗');
+    contactsData = d.contacts||[];
+    groupsData   = d.groups||[];
+    setDot('ok','已連線');
     buildChips();
   } catch(e) {
-    setDot('err', '連線失敗');
-    document.getElementById('contact-label').textContent = '無法載入聯絡人，請稍後重試';
+    setDot('err','連線失敗');
+    document.getElementById('contact-lbl').textContent = '無法載入，請稍後重試';
   }
 }
 
 function buildChips() {
   const cEl = document.getElementById('contact-chips');
   const gEl = document.getElementById('group-chips');
-  const cLb = document.getElementById('contact-label');
-  const gLb = document.getElementById('group-label');
+  const cLb = document.getElementById('contact-lbl');
+  const gLb = document.getElementById('group-lbl');
 
   if (contactsData.length) {
-    cLb.textContent = '聯絡人快選：';
-    cEl.innerHTML = contactsData.map(c =>
-      `<button class="chip" onclick="toggleRec('${c.name}',this)">${c.name}${c.relation?'（'+c.relation+'）':''}</button>`
-    ).join('');
+    cLb.textContent = '快選：';
+    cEl.innerHTML = contactsData
+      .map(c => `<button class="chip" onclick="toggleRec('${c.name}',this)">${c.name}</button>`)
+      .join('');
   } else {
     cLb.textContent = '聯絡人對照尚無資料';
   }
 
   if (groupsData.length) {
     gLb.style.display = 'block';
-    gLb.textContent = '群組快選：';
-    gEl.innerHTML = groupsData.map(g =>
-      `<button class="chip" onclick="toggleGrp('${g.name}',this)">${g.name}</button>`
-    ).join('');
+    gLb.textContent = '快選：';
+    gEl.innerHTML = groupsData
+      .map(g => `<button class="chip" onclick="toggleGrp('${g.name}',this)">${g.name}</button>`)
+      .join('');
+  } else {
+    gLb.style.display = 'none';
   }
 }
 
 function toggleRec(name, el) {
-  if (selectedRecs.has(name)) {
-    selectedRecs.delete(name);
-    el.classList.remove('sel');
-  } else {
-    selectedRecs.add(name);
-    el.classList.add('sel');
-  }
-  document.getElementById('f-rec').value = [...selectedRecs].join(',');
+  selRecs.has(name) ? selRecs.delete(name) : selRecs.add(name);
+  el.classList.toggle('sel', selRecs.has(name));
+  document.getElementById('f-rec').value = [...selRecs].join(',');
 }
 
 function toggleGrp(name, el) {
-  if (selectedGrps.has(name)) {
-    selectedGrps.delete(name);
-    el.classList.remove('sel');
-  } else {
-    selectedGrps.add(name);
-    el.classList.add('sel');
-  }
-  document.getElementById('f-grp').value = [...selectedGrps].join(',');
+  selGrps.has(name) ? selGrps.delete(name) : selGrps.add(name);
+  el.classList.toggle('sel', selGrps.has(name));
+  document.getElementById('f-grp').value = [...selGrps].join(',');
 }
 
-// ── 固定發送切換 ─────────────────────────
 function toggleFix() {
-  const show = document.getElementById('f-fix').checked;
-  document.getElementById('fix-box').classList.toggle('show', show);
+  document.getElementById('fix-box').classList.toggle('show', document.getElementById('f-fix').checked);
 }
 
-// ── 送出 ────────────────────────────────
 async function submit() {
   const title = document.getElementById('f-title').value.trim();
   const date  = document.getElementById('f-date').value;
-
-  if (!title) { toast('請填寫行程主題', 'err'); return; }
-  if (!date)  { toast('請選擇日期', 'err'); return; }
+  if (!title) { toast('請填寫行程主題','err'); return; }
+  if (!date)  { toast('請選擇日期','err'); return; }
 
   const btn = document.getElementById('submit-btn');
-  btn.disabled = true;
-  btn.textContent = '送出中…';
+  btn.disabled = true; btn.textContent = '送出中…';
 
   const body = {
-    action:     'add',
-    title,
-    date,
+    action:'add', title, date,
     type:       document.getElementById('f-type').value,
     startTime:  document.getElementById('f-start').value,
     endTime:    document.getElementById('f-end').value,
@@ -388,74 +347,54 @@ async function submit() {
   };
 
   try {
-    const r = await fetch(API_URL, { method: 'POST', body: JSON.stringify(body) });
+    const r = await fetch(API_URL, { method:'POST', body: JSON.stringify(body) });
     const d = await r.json();
-
     if (d.success) {
-      // 顯示成功提示
-      const banner = document.getElementById('success-banner');
-      const detail = document.getElementById('success-detail');
-      const dateStr = date.replace(/-/g,'/');
-      let detailText = `主題：${title}　日期：${dateStr}`;
-      if (body.type)       detailText += `\n類型：${body.type}`;
-      if (body.startTime)  detailText += `　時間：${body.startTime}${body.endTime?' – '+body.endTime:''}`;
-      if (body.recipients) detailText += `\n提醒對象：${body.recipients}`;
-      detail.textContent = detailText;
-      banner.classList.add('show');
-
-      // 自動清空
+      const detail = [
+        `主題：${title}　日期：${date.replace(/-/g,'/')}`,
+        body.type       ? `類型：${body.type}` : '',
+        body.startTime  ? `時間：${body.startTime}${body.endTime?' – '+body.endTime:''}` : '',
+        body.recipients ? `提醒對象：${body.recipients}` : '',
+        body.groups     ? `通知群組：${body.groups}` : '',
+      ].filter(Boolean).join('\n');
+      document.getElementById('success-detail').textContent = detail;
+      document.getElementById('success-banner').classList.add('show');
       resetForm();
-      // 3秒後隱藏成功提示
-      setTimeout(() => banner.classList.remove('show'), 4000);
-
+      setTimeout(() => document.getElementById('success-banner').classList.remove('show'), 4500);
     } else {
-      toast('送出失敗：' + (d.error || ''), 'err');
+      toast('送出失敗：'+(d.error||''),'err');
     }
   } catch(e) {
-    toast('連線錯誤：' + e.message, 'err');
+    toast('連線錯誤：'+e.message,'err');
   } finally {
-    btn.disabled = false;
-    btn.textContent = '送出行程';
+    btn.disabled = false; btn.textContent = '送出行程';
   }
 }
 
-// ── 清空表單 ─────────────────────────────
 function resetForm() {
-  ['f-title','f-start','f-end','f-loc','f-note','f-fdt'].forEach(id =>
-    document.getElementById(id).value = ''
-  );
-  document.getElementById('f-type').value = '';
-  document.getElementById('f-pri').value  = '一般';
-  document.getElementById('f-rec').value  = '';
-  document.getElementById('f-grp').value  = '';
-  ['f-n7','f-n1','f-nd','f-fix'].forEach(id =>
-    document.getElementById(id).checked = false
-  );
+  ['f-title','f-start','f-end','f-loc','f-note','f-fdt'].forEach(id => document.getElementById(id).value='');
+  document.getElementById('f-type').value='';
+  document.getElementById('f-pri').value='一般';
+  document.getElementById('f-rec').value='';
+  document.getElementById('f-grp').value='';
+  ['f-n7','f-n1','f-nd','f-fix'].forEach(id => document.getElementById(id).checked=false);
   document.getElementById('fix-box').classList.remove('show');
-
-  // 重設快選狀態
-  selectedRecs.clear();
-  selectedGrps.clear();
+  selRecs.clear(); selGrps.clear();
   document.querySelectorAll('.chip').forEach(c => c.classList.remove('sel'));
-
-  // 日期回今天
-  const today = new Date();
-  const yyyy = today.getFullYear();
-  const mm   = String(today.getMonth()+1).padStart(2,'0');
-  const dd   = String(today.getDate()).padStart(2,'0');
-  document.getElementById('f-date').value = `${yyyy}-${mm}-${dd}`;
+  const t = new Date();
+  document.getElementById('f-date').value =
+    `${t.getFullYear()}-${String(t.getMonth()+1).padStart(2,'0')}-${String(t.getDate()).padStart(2,'0')}`;
 }
 
-// ── 工具 ────────────────────────────────
 function setDot(state, label) {
-  document.getElementById('dot').className = 'dot ' + state;
-  document.getElementById('conn-label').textContent = label;
+  document.getElementById('dot').className = 'dot '+state;
+  document.getElementById('conn-lbl').textContent = label;
 }
 let tt;
 function toast(msg, type='ok') {
   const el = document.getElementById('toast');
-  el.textContent = msg; el.className = 'show ' + type;
-  clearTimeout(tt); tt = setTimeout(() => el.className = '', 3000);
+  el.textContent = msg; el.className = 'show '+type;
+  clearTimeout(tt); tt = setTimeout(() => el.className='', 3000);
 }
 </script>
 </body>
